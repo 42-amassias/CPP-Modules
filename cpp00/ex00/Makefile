@@ -1,19 +1,19 @@
-CXX			=	c++
+CXX			:=	c++
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98
+CPPFLAGS	:=	-Wall -Wextra -Werror -std=c++98
 
-NAME		=	megaphone
+NAME		:=	megaphone
 
-BUILD_DIR	=	build
+BUILD_DIR	:=	build
 
-RM			=	rm -f
+RM			:=	rm -f
 
-FILES		=				\
+FILES		:=				\
 				Megaphone
 
-SRCS		=	$(addsuffix .cpp,$(FILES))
+SRCS		:=	$(addsuffix .cpp,$(FILES))
 
-OBJS		=	$(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(FILES)))
+OBJS		:=	$(addprefix $(BUILD_DIR)/,$(addsuffix .o,$(FILES)))
 
 .PHONY: all clean fclean re
 
@@ -32,4 +32,4 @@ $(NAME): $(OBJS)
 
 $(BUILD_DIR)/%.o: %.cpp
 	@mkdir -p $(@D)
-	$(CXX) -o $@ -c $< $(CFLAGS)
+	$(CXX) -o $@ -c $< $(CPPFLAGS)
