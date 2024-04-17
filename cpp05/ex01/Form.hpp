@@ -38,13 +38,13 @@ class Form
 			public std::exception
 		{
 			virtual const char*	what() const throw();
-		} gradeTooHighException;
+		};
 
 		class GradeTooLowException :
 			public std::exception
 		{
 			virtual const char*	what() const throw();
-		} gradeTooLowException;
+		};
 };
 
 std::ostream	&operator<<(std::ostream &stream, const Form &form);

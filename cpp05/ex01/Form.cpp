@@ -31,9 +31,9 @@ Form::Form(
 	m_execute_grade(execute_grade)
 {
 	if (m_sign_grade < Bureaucrat::highest_grade)
-		throw Form::gradeTooHighException;
+		throw Form::GradeTooHighException();
 	if (m_sign_grade > Bureaucrat::lowest_grade)
-		throw Form::gradeTooLowException;
+		throw Form::GradeTooLowException();
 }
 
 Form	&Form::operator=(const Form &o)
@@ -47,7 +47,7 @@ Form	&Form::operator=(const Form &o)
 void	Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > m_sign_grade)
-		throw Form::gradeTooLowException;
+		throw Form::GradeTooLowException();
 	m_signed = true;
 }
 

@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat(const std::string &name, const unsigned int grade) :
 	m_grade(grade)
 {
 	if (m_grade < Bureaucrat::highest_grade)
-		throw Bureaucrat::gradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	if (m_grade > Bureaucrat::lowest_grade)
-		throw Bureaucrat::gradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &o)
@@ -37,7 +37,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &o)
 void	Bureaucrat::upgrade(unsigned int amount)
 {
 	if (m_grade < Bureaucrat::highest_grade + amount)
-		throw Bureaucrat::gradeTooHighException;
+		throw Bureaucrat::GradeTooHighException();
 	m_grade -= amount;
 }
 
@@ -50,7 +50,7 @@ void	Bureaucrat::upgrade(void)
 void	Bureaucrat::downgrade(unsigned int amount)
 {
 	if (m_grade + amount > Bureaucrat::lowest_grade)
-		throw Bureaucrat::gradeTooLowException;
+		throw Bureaucrat::GradeTooLowException();
 	m_grade += amount;
 }
 
