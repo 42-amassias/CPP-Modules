@@ -1,12 +1,15 @@
 #include "Point.hpp"
 
 Fixed	_sign(
-			const Point &p1,
-			const Point &p2,
-			const Point &p3
+			Point const& p1,
+			Point const& p2,
+			Point const& p3
 			)
 {
-	return (p1.getX() - p3.getX()) * (p2.getY() - p3.getY()) - (p2.getX() - p3.getX()) * (p1.getY() - p3.getY());
+	Point const	p13(p1 - p3);
+	Point const	p23(p2 - p3);
+
+	return (p13.getX() * p23.getY() - p23.getX() * p13.getY());
 }
 
 bool bsp(

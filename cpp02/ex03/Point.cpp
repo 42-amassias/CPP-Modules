@@ -31,6 +31,22 @@ Point	&Point::operator=(const Point &o)
 	return (*this);
 }
 
+Point	Point::operator+(Point const& o) const
+{
+	float const	rx = m_x.toFloat() + o.getX().toFloat();
+	float const	ry = m_y.toFloat() + o.getY().toFloat();
+
+	return (Point(rx, ry));
+}
+
+Point	Point::operator-(Point const& o) const
+{
+	float const	rx = m_x.toFloat() - o.getX().toFloat();
+	float const	ry = m_y.toFloat() - o.getY().toFloat();
+
+	return (Point(rx, ry));
+}
+
 const Fixed	&Point::getX(void) const
 {
 	return (m_x);

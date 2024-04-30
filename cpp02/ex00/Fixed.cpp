@@ -8,7 +8,7 @@ Fixed::Fixed() :
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed &o) :
+Fixed::Fixed(Fixed const& o) :
 	m_value(o.m_value)
 {
 	std::cout << "Copy constructor called" << std::endl;
@@ -19,7 +19,7 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed	&Fixed::operator=(Fixed &o)
+Fixed	&Fixed::operator=(Fixed const& o)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	m_value = o.m_value;

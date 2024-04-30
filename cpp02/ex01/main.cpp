@@ -4,12 +4,12 @@
 
 int	main(void)
 {
-	Fixed		a;
-	const Fixed	b(10);
-	const Fixed	c(42.42f);
-	const Fixed	d(b);
+	Fixed	a(0);
+	Fixed	b(10);
+	Fixed	c(42.42f);
+	Fixed	d(b);
 
-	a = Fixed(1234.1234f);
+	b = Fixed(1234.1234f);
 
 	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;

@@ -5,10 +5,10 @@ class Fixed
 {
 	public:
 		Fixed();
-		Fixed(Fixed &o);
+		Fixed(Fixed const& o);
 		~Fixed();
 
-		Fixed	&operator=(Fixed &o);
+		Fixed	&operator=(Fixed const& o);
 
 		int		getRawBits(void) const;
 		void	setRawBits(const int raw);

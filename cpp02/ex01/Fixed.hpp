@@ -6,27 +6,27 @@
 class Fixed
 {
 	public:
-		Fixed(const Fixed &o);
+		Fixed(Fixed const& o);
 		~Fixed();
-		
+
 		Fixed();
-		Fixed(const int integer);
-		Fixed(const float value);
+		Fixed(int const integer);
+		Fixed(float const value);
 
-		Fixed	&operator=(const Fixed &o);
+		Fixed&			operator=(Fixed const& o);
 
-		int		getRawBits(void) const;
-		void	setRawBits(const int raw);
+		int				getRawBits(void) const;
+		void			setRawBits(int const raw);
 
-		float	toFloat(void) const;
-		int		toInt(void) const;
-	
+		float			toFloat(void) const;
+		int				toInt(void) const;
+
 	private:
 		int					m_value;
 
-		static const int	frac_bits = 8;
+		static int const	frac_bits = 8;
 };
 
-std::ostream	&operator<<(std::ostream &o, Fixed const &fixed);
+std::ostream&	operator<<(std::ostream & o, Fixed const& fixed);
 
 #endif

@@ -6,21 +6,24 @@
 class Point
 {
 	public:
-		Point();
-		Point(const float x, const float y);
-		Point(const Point &o);
-		~Point();
+		Point(void);
+		Point(float const x, float const y);
+		Point(Point const& o);
+		~Point(void);
 	
-		Point	&operator=(const Point &o);
+		Point&			operator=(Point const& o);
 
-		const Fixed	&getX(void) const;
-		const Fixed	&getY(void) const;
+		Point			operator+(Point const& o) const;
+		Point			operator-(Point const& o) const;
+
+		Fixed const&	getX(void) const;
+		Fixed const&	getY(void) const;
 
 	private:
 		const Fixed	m_x;
 		const Fixed	m_y;
 };
 
-std::ostream	&operator<<(std::ostream &o, Point const &point);
+std::ostream&	operator<<(std::ostream & o, Point const& point);
 
 #endif
