@@ -1,6 +1,6 @@
 #include "DiamondTrap.hpp"
 
-DiamondTrap::DiamondTrap(const std::string &name) :
+DiamondTrap::DiamondTrap(std::string const& name) :
 	ClapTrap(name),
 	ScavTrap(name),
 	FragTrap(name)
@@ -13,7 +13,7 @@ DiamondTrap::DiamondTrap(const std::string &name) :
 	std::cout << "DiamondTrap " << m_name << " has become alive !" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap &o) :
+DiamondTrap::DiamondTrap(DiamondTrap const& o) :
 	ClapTrap(o),
 	ScavTrap(o),
 	FragTrap(o)
@@ -21,7 +21,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &o) :
 	std::cout << "DiamondTrap " << m_name << " has become alive !" << std::endl;
 }
 
-DiamondTrap::~DiamondTrap()
+DiamondTrap::~DiamondTrap(void)
 {
 	std::cout << "DiamondTrap " << m_name << " ceased to exist !" << std::endl;
 }

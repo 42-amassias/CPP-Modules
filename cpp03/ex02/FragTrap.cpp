@@ -1,26 +1,35 @@
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap(const std::string &name) :
+FragTrap::FragTrap(std::string const& name) :
 	ClapTrap(name)
 {
 	m_hp = 100;
-	m_ep = 100;
-	m_ad = 30;
+	m_ep = 50;
+	m_ad = 20;
 	std::cout << "FragTrap " << m_name << " has become alive !" << std::endl;
 }
 
 FragTrap::FragTrap(const FragTrap &o) :
 	ClapTrap(o)
 {
+	*this = o;
 	std::cout << "FragTrap " << m_name << " has become alive !" << std::endl;
 }
 
-FragTrap::~FragTrap()
+FragTrap::~FragTrap(void)
 {
 	std::cout << "FragTrap " << m_name << " ceased to exist !" << std::endl;
 }
 
-void	FragTrap::attack(const std::string &target)
+FragTrap&	FragTrap::operator=(FragTrap const& o)
+{
+	if (this == &o)
+		return (*this);
+	ClapTrap::operator=(o);
+	return (*this);
+}
+
+void	FragTrap::attack(std::string const& target)
 {
 	if (!canDoAction(std::string("attack ") + target))
 		return ;
@@ -34,9 +43,9 @@ void	FragTrap::attack(const std::string &target)
 void	FragTrap::highFiveGuys(void)
 {
 	if (!canDoAction("go into gate keeper mode"))
-		return ;
-	std::cout
-		<< "FragTrap " << m_name
-		<< " requests a high fives with you guys !."
-		<< std::endl;
+			return ;
+		std::cout
+			<< "FragTrap " << m_name
+			<< " requests a high fives with you guys !."
+			<< std::endl;
 }

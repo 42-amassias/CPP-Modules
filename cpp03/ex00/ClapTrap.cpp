@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(const std::string &name) :
+ClapTrap::ClapTrap(std::string const& name) :
 	m_name(name),
 	m_hp(10),
 	m_ep(10),
@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(const std::string &name) :
 	std::cout << m_name << " has become alive !" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &o) :
+ClapTrap::ClapTrap(ClapTrap const& o) :
 	m_name(o.m_name),
 	m_hp(o.m_hp),
 	m_ep(o.m_ep),
@@ -17,13 +17,15 @@ ClapTrap::ClapTrap(const ClapTrap &o) :
 {
 	std::cout << m_name << " has become alive !" << std::endl;
 }
-ClapTrap::~ClapTrap()
+ClapTrap::~ClapTrap(void)
 {
 	std::cout << m_name << " ceased to exist !" << std::endl;
 }
 
-ClapTrap	&ClapTrap::operator=(const ClapTrap &o)
+ClapTrap&	ClapTrap::operator=(ClapTrap const& o)
 {
+	if (this == &o)
+		return (*this);
 	this->m_name = o.m_name;
 	this->m_hp = o.m_hp;
 	this->m_ep = o.m_ep;
@@ -31,7 +33,7 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &o)
 	return (*this);
 }
 
-bool	ClapTrap::canDoAction(const std::string &action) const
+bool	ClapTrap::canDoAction(std::string const& action) const
 {
 	if (m_hp > 0 && m_ep > 0)
 		return (true);
@@ -44,7 +46,7 @@ bool	ClapTrap::canDoAction(const std::string &action) const
 	return (false);
 }
 
-void	ClapTrap::attack(const std::string &target)
+void	ClapTrap::attack(std::string const& target)
 {
 	if (!canDoAction(std::string("attack ") + target))
 		return ;
@@ -55,7 +57,7 @@ void	ClapTrap::attack(const std::string &target)
 		<< std::endl;
 }
 
-void	ClapTrap::takeDamage(const unsigned int amount)
+void	ClapTrap::takeDamage(unsigned int const amount)
 {
 	m_hp = amount > m_hp ? 0 :  m_hp - amount;
 	std::cout
@@ -68,7 +70,7 @@ void	ClapTrap::takeDamage(const unsigned int amount)
 	std::cout << std::endl;
 }
 
-void	ClapTrap::beRepaired(const unsigned int amount)
+void	ClapTrap::beRepaired(unsigned int const amount)
 {
 	if (!canDoAction("be repaired"))
 		return ;

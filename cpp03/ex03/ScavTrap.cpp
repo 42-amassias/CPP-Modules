@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(const std::string &name) :
+ScavTrap::ScavTrap(std::string const& name) :
 	ClapTrap(name)
 {
 	m_hp = 100;
@@ -12,15 +12,24 @@ ScavTrap::ScavTrap(const std::string &name) :
 ScavTrap::ScavTrap(const ScavTrap &o) :
 	ClapTrap(o)
 {
+	*this = o;
 	std::cout << "ScavTrap " << m_name << " has become alive !" << std::endl;
 }
 
-ScavTrap::~ScavTrap()
+ScavTrap::~ScavTrap(void)
 {
 	std::cout << "ScavTrap " << m_name << " ceased to exist !" << std::endl;
 }
 
-void	ScavTrap::attack(const std::string &target)
+ScavTrap&	ScavTrap::operator=(ScavTrap const& o)
+{
+	if (this == &o)
+		return (*this);
+	ClapTrap::operator=(o);
+	return (*this);
+}
+
+void	ScavTrap::attack(std::string const& target)
 {
 	if (!canDoAction(std::string("attack ") + target))
 		return ;

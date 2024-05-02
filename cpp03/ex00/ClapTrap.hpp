@@ -6,18 +6,18 @@
 class ClapTrap
 {
 	public:
-		ClapTrap(const std::string &name);
-		ClapTrap(const ClapTrap &o);
-		~ClapTrap();
+		ClapTrap(std::string const& name);
+		ClapTrap(ClapTrap const& o);
+		~ClapTrap(void);
 
-		ClapTrap	&operator=(const ClapTrap &o);
+		ClapTrap&	operator=(ClapTrap const& o);
 
-		void	attack(const std::string &target);
-		void	takeDamage(const unsigned int amount);
-		void	beRepaired(const unsigned int amount);
+		void	attack(std::string const& target);
+		void	takeDamage(unsigned int const amount);
+		void	beRepaired(unsigned int const amount);
 
 	private:
-		bool	canDoAction(const std::string &action) const;
+		bool	canDoAction(std::string const& action) const;
 
 	private:
 		std::string		m_name;

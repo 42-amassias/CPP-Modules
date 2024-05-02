@@ -3,9 +3,12 @@
 
 int	main(void)
 {
-	ClapTrap	a("user1");
+	ScavTrap	a("user1");
 	ScavTrap	b("user2");
-	ClapTrap	c(b);
 
+	a.attack("the air");
+	a.takeDamage(10);
+	a.beRepaired(10);
+	a.guardGate();
 	return (0);
 }

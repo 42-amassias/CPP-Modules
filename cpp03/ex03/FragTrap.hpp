@@ -7,13 +7,13 @@ class FragTrap :
 	virtual public ClapTrap
 {
 	public:
-		FragTrap(const std::string &name);
-		FragTrap(const FragTrap &o);
-		~FragTrap();
+		FragTrap(std::string const& name);
+		FragTrap(FragTrap const& o);
+		~FragTrap(void);
 
-		FragTrap	&operator=(const FragTrap &o);
+		FragTrap&	operator=(FragTrap const& o);
 
-		void	attack(const std::string &target);
+		void	attack(std::string const& target);
 
 		void	highFiveGuys(void);
 };
