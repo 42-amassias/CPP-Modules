@@ -9,6 +9,7 @@ Dog::Dog() :
 Dog::Dog(const Dog &o) :
 	Animal(o)
 {
+	Animal::operator=(o);
 	std::cout << "new dog" << std::endl;
 }
 

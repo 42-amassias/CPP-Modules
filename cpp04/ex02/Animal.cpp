@@ -12,8 +12,7 @@ Animal::Animal(const std::string &type) :
 	std::cout << "new animal" << std::endl;
 }
 
-Animal::Animal(const Animal &o) :
-	m_type(o.m_type)
+Animal::Animal(const Animal &o)
 {
 	*this = o;
 	std::cout << "new animal" << std::endl;
@@ -26,6 +25,8 @@ Animal::~Animal(void)
 
 Animal	&Animal::operator=(const Animal &o)
 {
+	if (this == &o)
+		return (*this);
 	m_type = o.m_type;
 	return (*this);
 }

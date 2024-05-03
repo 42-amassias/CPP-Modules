@@ -6,9 +6,9 @@ WrongCat::WrongCat() :
 	std::cout << "new wrong cat" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &o) :
-	WrongAnimal(o)
+WrongCat::WrongCat(const WrongCat &o)
 {
+	*this = o;
 	std::cout << "new wrong cat" << std::endl;
 }
 

@@ -9,6 +9,7 @@ Cat::Cat() :
 Cat::Cat(const Cat &o) :
 	Animal(o)
 {
+	Animal::operator=(o);
 	std::cout << "new cat" << std::endl;
 }
 

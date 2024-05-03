@@ -12,9 +12,9 @@ WrongAnimal::WrongAnimal(const std::string &type) :
 	std::cout << "new wrong animal" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &o) :
-	m_type(o.m_type)
+WrongAnimal::WrongAnimal(const WrongAnimal &o)
 {
+	*this = o;
 	std::cout << "new wrong animal" << std::endl;
 }
 
@@ -25,6 +25,8 @@ WrongAnimal::~WrongAnimal()
 
 WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &o)
 {
+	if (this == &o)
+		return (*this);
 	m_type = o.m_type;
 	return (*this);
 }
