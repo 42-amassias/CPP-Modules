@@ -9,7 +9,7 @@ class WrongAnimal
 		WrongAnimal(void);
 		WrongAnimal(const std::string &type);
 		WrongAnimal(const WrongAnimal &o);
-		~WrongAnimal(void);
+		virtual ~WrongAnimal(void);
 
 		WrongAnimal			&operator=(const WrongAnimal &o);
 
