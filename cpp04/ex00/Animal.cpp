@@ -1,6 +1,6 @@
 #include "Animal.hpp"
 
-Animal::Animal() :
+Animal::Animal(void) :
 	m_type("")
 {
 	std::cout << "new animal" << std::endl;
@@ -18,7 +18,7 @@ Animal::Animal(const Animal &o)
 	std::cout << "new animal" << std::endl;
 }
 
-Animal::~Animal()
+Animal::~Animal(void)
 {
 	std::cout << "killed animal" << std::endl;
 }

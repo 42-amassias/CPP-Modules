@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat() :
+Cat::Cat(void) :
 	Animal("Cat")
 {
 	std::cout << "new cat" << std::endl;
@@ -13,7 +13,7 @@ Cat::Cat(const Cat &o) :
 	std::cout << "new cat" << std::endl;
 }
 
-Cat::~Cat()
+Cat::~Cat(void)
 {
 	std::cout << "killed cat" << std::endl;
 }

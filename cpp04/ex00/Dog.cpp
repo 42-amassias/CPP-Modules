@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() :
+Dog::Dog(void) :
 	Animal("Dog")
 {
 	std::cout << "new dog" << std::endl;
@@ -13,7 +13,7 @@ Dog::Dog(const Dog &o) :
 	std::cout << "new dog" << std::endl;
 }
 
-Dog::~Dog()
+Dog::~Dog(void)
 {
 	std::cout << "killed dog" << std::endl;
 }

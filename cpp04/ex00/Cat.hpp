@@ -7,9 +7,9 @@ class Cat :
 	public Animal
 {
 	public:
-		Cat();
+		Cat(void);
 		Cat(const Cat &o);
-		~Cat();
+		~Cat(void);
 
 		void	makeSound(void) const;
 };

@@ -1,6 +1,6 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() :
+WrongAnimal::WrongAnimal(void) :
 	m_type("")
 {
 	std::cout << "new animal" << std::endl;
@@ -18,7 +18,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &o)
 	std::cout << "new wrong animal" << std::endl;
 }
 
-WrongAnimal::~WrongAnimal()
+WrongAnimal::~WrongAnimal(void)
 {
 	std::cout << "killed wrong animal" << std::endl;
 }

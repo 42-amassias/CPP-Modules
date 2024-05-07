@@ -1,6 +1,6 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() :
+WrongCat::WrongCat(void) :
 	WrongAnimal("WrongCat")
 {
 	std::cout << "new wrong cat" << std::endl;
@@ -12,7 +12,7 @@ WrongCat::WrongCat(const WrongCat &o) :
 	std::cout << "new wrong cat" << std::endl;
 }
 
-WrongCat::~WrongCat()
+WrongCat::~WrongCat(void)
 {
 	std::cout << "killed wrong cat" << std::endl;
 }

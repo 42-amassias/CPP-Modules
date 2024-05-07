@@ -7,9 +7,9 @@ class WrongCat :
 	public WrongAnimal
 {
 	public:
-		WrongCat();
+		WrongCat(void);
 		WrongCat(const WrongCat &o);
-		~WrongCat();
+		~WrongCat(void);
 
 		void	makeSound(void) const;
 };
