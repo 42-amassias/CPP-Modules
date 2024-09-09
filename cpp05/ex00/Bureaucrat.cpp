@@ -29,7 +29,6 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &o)
 {
 	if (this == &o)
 		return (*this);
-	m_name = o.m_name;
 	m_grade = o.m_grade;
 	return (*this);
 }

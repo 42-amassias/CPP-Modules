@@ -6,7 +6,8 @@ Bureaucrat::Bureaucrat(void) :
 {
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &o)
+Bureaucrat::Bureaucrat(const Bureaucrat &o) :
+	m_name(o.m_name)
 {
 	*this = o;
 }
@@ -29,7 +30,6 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &o)
 {
 	if (this == &o)
 		return (*this);
-	m_name = o.m_name;
 	m_grade = o.m_grade;
 	return (*this);
 }
@@ -75,7 +75,7 @@ void	_log(
 		<< std::endl;
 }
 
-void	Bureaucrat::signAForm(AForm &form) const
+void	Bureaucrat::signForm(AForm &form) const
 {
 	if (form.isSigned())
 	{

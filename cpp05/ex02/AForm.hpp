@@ -27,35 +27,40 @@ class AForm
 		virtual void		execute(const Bureaucrat &executor) const = 0;
 
 	protected:
-		void				checkIfCanSign(const Bureaucrat &bureaucrat) const;
-		void				checkIfCanExecute(const Bureaucrat &bureaucrat) const;
+		bool				checkIfCanSign(const Bureaucrat &bureaucrat) const;
+		bool				checkIfCanExecute(const Bureaucrat &bureaucrat) const;
 
 	private:
 		AForm(void);
 
+		void	log_sign_failure(const Bureaucrat &bureaucrat, const std::string &msg) const;
+
 	private:
 		const std::string	m_name;
-		bool				m_signed;
 		const unsigned int	m_sign_grade;
 		const unsigned int	m_execute_grade;
+		bool				m_signed;
 
 	public:
 		class GradeTooHighException :
 			public std::exception
 		{
-			virtual const char*	what() const throw();
+			public:
+				virtual const char*	what() const throw();
 		};
 
 		class GradeTooLowException :
 			public std::exception
 		{
-			virtual const char*	what() const throw();
+			public:
+				virtual const char*	what() const throw();
 		};
 
 		class FormNotSignedException :
 			public std::exception
 		{
-			virtual const char*	what() const throw();
+			public:
+				virtual const char*	what() const throw();
 		};
 };
 

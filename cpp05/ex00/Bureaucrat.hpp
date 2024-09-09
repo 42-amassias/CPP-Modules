@@ -27,8 +27,8 @@ class Bureaucrat
 		static const unsigned int	lowest_grade = 150;
 
 	private:
-		std::string		m_name;
-		unsigned int	m_grade;
+		const std::string	m_name;
+		unsigned int		m_grade;
 
 	public:
 		class GradeTooHighException :

@@ -23,15 +23,17 @@ class Form
 		bool				isSigned(void) const;
 		unsigned int		getSignGrade(void) const;
 		unsigned int		getExecuteGrade(void) const;
-	
+
 	private:
 		Form(void);
 
+		void	log_sign_failure(const Bureaucrat &bureaucrat, const std::string &msg) const;
+
 	private:
 		const std::string	m_name;
-		bool				m_signed;
 		const unsigned int	m_sign_grade;
 		const unsigned int	m_execute_grade;
+		bool				m_signed;
 
 	public:
 		class GradeTooHighException :

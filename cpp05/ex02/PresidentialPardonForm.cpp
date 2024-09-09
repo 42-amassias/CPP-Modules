@@ -1,13 +1,13 @@
 #include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void) :
-	AForm("shrubbery creation form", 25, 5),
+	AForm("presidential pardon form", 25, 5),
 	m_target("Unknown target")
 {
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string &target) :
-	AForm("shrubbery creation form", 25, 5),
+	AForm("presidential pardon form", 25, 5),
 	m_target(target)
 {
 }

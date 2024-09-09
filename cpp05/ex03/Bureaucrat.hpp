@@ -22,7 +22,7 @@ class Bureaucrat
 		void				downgrade(const unsigned int amount);
 		void				downgrade(void);
 
-		void				signAForm(AForm &form) const;
+		void				signForm(AForm &form) const;
 		void				executeForm(const AForm &form) const;
 
 		const std::string	&getName(void) const;
@@ -36,20 +36,22 @@ class Bureaucrat
 		static const unsigned int	lowest_grade = 150;
 
 	private:
-		std::string		m_name;
-		unsigned int	m_grade;
+		const std::string	m_name;
+		unsigned int		m_grade;
 
 	public:
 		class GradeTooHighException :
 			public std::exception
 		{
-			virtual const char*	what() const throw();
+			public:
+				virtual const char*	what() const throw();
 		};
 
 		class GradeTooLowException :
 			public std::exception
 		{
-			virtual const char*	what() const throw();
+			public:
+				virtual const char*	what() const throw();
 		};
 };
 

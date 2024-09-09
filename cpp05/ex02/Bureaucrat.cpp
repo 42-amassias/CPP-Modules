@@ -29,7 +29,6 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &o)
 {
 	if (this == &o)
 		return (*this);
-	m_name = o.m_name;
 	m_grade = o.m_grade;
 	return (*this);
 }
@@ -75,24 +74,9 @@ void	_log(
 		<< std::endl;
 }
 
-void	Bureaucrat::signAForm(AForm &form) const
+void	Bureaucrat::signForm(AForm &form) const
 {
-	if (form.isSigned())
-	{
-		_log(*this, form, "is is already signed");
-		return ;
-	}
-	if (form.getSignGrade() < m_grade)
-	{
-		_log(*this, form, "his grade isn't high enough");
-		return ;
-	}
 	form.beSigned(*this);
-	std::cout
-		<< m_name
-		<< " signed "
-		<< form.getName()
-		<< std::endl;
 }
 
 void	Bureaucrat::executeForm(const AForm &form) const

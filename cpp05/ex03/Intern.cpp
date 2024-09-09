@@ -35,7 +35,19 @@ AForm	*Intern::makeForm(const std::string &form_name, const std::string &target)
 
 	for (size_t i = 0; i < sizeof(forms) / sizeof(Intern::form_t); ++i)
 		if (form_name == forms[i].name)
+		{
+			std::cout
+				<< "Intern creates form "
+				<< form_name
+				<< "."
+				<< std::endl;
 			return (forms[i].creator(target));
+		}
+	std::cout
+		<< "Intern could not create form "
+		<< form_name
+		<< ": form does not exist."
+		<< std::endl;
 	return (NULL);
 }
 
@@ -53,4 +65,3 @@ AForm	*Intern::createPresidentialPardonForm(const std::string &target)
 {
 	return new PresidentialPardonForm(target);
 }
-

@@ -2,16 +2,17 @@
 
 AForm::AForm(void) :
 	m_name("Unknown form"),
-	m_signed(false),
 	m_sign_grade(0),
-	m_execute_grade(0)
+	m_execute_grade(0),
+	m_signed(false)
 {
 }
 
 AForm::AForm(const AForm &o) :
 	m_name(o.m_name),
 	m_sign_grade(o.m_sign_grade),
-	m_execute_grade(o.m_execute_grade)
+	m_execute_grade(o.m_execute_grade),
+	m_signed(false)
 {
 	*this = o;
 }
@@ -26,9 +27,9 @@ AForm::AForm(
 	AForm::grade_t execute_grade
 	) :
 	m_name(name),
-	m_signed(false),
 	m_sign_grade(sign_grade),
-	m_execute_grade(execute_grade)
+	m_execute_grade(execute_grade),
+	m_signed(false)
 {
 	if (m_sign_grade < Bureaucrat::highest_grade)
 		throw AForm::GradeTooHighException();
@@ -42,6 +43,21 @@ AForm	&AForm::operator=(const AForm &o)
 		return (*this);
 	m_signed = o.m_signed;
 	return (*this);
+}
+
+void	AForm::log_sign_failure(
+			const Bureaucrat &bureaucrat,
+			const std::string &msg
+			) const
+{
+	std::cout
+		<< bureaucrat.getName()
+		<< " could not sign "
+		<< m_name
+		<< " because "
+		<< msg
+		<< "."
+		<< std::endl;
 }
 
 void	AForm::beSigned(const Bureaucrat &bureaucrat)
@@ -70,18 +86,28 @@ AForm::grade_t	AForm::getExecuteGrade(void) const
 	return (m_execute_grade);
 }
 
-void	AForm::checkIfCanSign(const Bureaucrat &bureaucrat) const
+bool	AForm::checkIfCanSign(const Bureaucrat &bureaucrat) const
 {
-	if (bureaucrat.getGrade() > m_sign_grade)
+	if (m_signed)
+	{
+		log_sign_failure(bureaucrat, "is is already signed");
+		return (false);
+	}
+	if (m_sign_grade < bureaucrat.getGrade())
+	{
+		log_sign_failure(bureaucrat, "his grade isn't high enough");
 		throw AForm::GradeTooLowException();
+	}
+	return (true);
 }
 
-void	AForm::checkIfCanExecute(const Bureaucrat &bureaucrat) const
+bool	AForm::checkIfCanExecute(const Bureaucrat &bureaucrat) const
 {
 	if (!m_signed)
 		throw AForm::FormNotSignedException();
 	if (bureaucrat.getGrade() > m_execute_grade)
 		throw AForm::GradeTooLowException();
+	return (true);
 }
 
 const char*	AForm::GradeTooHighException::what() const throw()
