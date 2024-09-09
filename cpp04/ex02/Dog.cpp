@@ -25,7 +25,7 @@ Dog		&Dog::operator=(const Dog &o)
 {
 	if (this == &o)
 		return (*this);
-	*this = o;
+	Animal::operator=(o);
 	if (m_brain != NULL)
 		delete m_brain;
 	m_brain = new Brain(*o.m_brain);
