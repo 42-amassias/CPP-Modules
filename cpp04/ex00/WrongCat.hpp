@@ -11,6 +11,7 @@ class WrongCat :
 		WrongCat(const WrongCat &o);
 		~WrongCat(void);
 
+		WrongCat	&operator=(const WrongCat &o);
 		void	makeSound(void) const;
 };
 

@@ -6,7 +6,8 @@ WrongCat::WrongCat(void) :
 	std::cout << "new wrong cat" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &o)
+WrongCat::WrongCat(const WrongCat &o) :
+	WrongAnimal(o)
 {
 	*this = o;
 	std::cout << "new wrong cat" << std::endl;
@@ -15,6 +16,12 @@ WrongCat::WrongCat(const WrongCat &o)
 WrongCat::~WrongCat(void)
 {
 	std::cout << "killed wrong cat" << std::endl;
+}
+
+WrongCat	&WrongCat::operator=(const WrongCat &o)
+{
+	WrongAnimal::operator=(o);
+	return (*this);
 }
 
 void	WrongCat::makeSound(void) const
