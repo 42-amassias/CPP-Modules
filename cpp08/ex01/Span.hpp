@@ -1,5 +1,6 @@
 #pragma once
 
+#include <stdexcept>
 #include <vector>
 
 class Span
@@ -18,8 +19,9 @@ class Span
 		{
 			typename T::iterator	itr;
 
-			for (itr = range.begin(); itr != range.end(); ++itr)
-				addNumber(*itr);
+			if (m_values.size() + range.size() > m_capacity)
+				throw std::out_of_range("too many values in span");
+			m_values.insert(m_values.end(), range.begin(), range.end());
 		}
 
 		int		shortestSpan(void) const;
